@@ -14,11 +14,19 @@ function setup_layers(pScope){
 
   var layer1 = new PLayer(faces);
   layer1.mode( SWIRL(5) );
-  layer1.set_boundary( 200, 1000 );
+  layer1.set_boundary( 0, 1000 );
 
   var layer2 = new PLayer(squares);
   layer2.mode( RING );
-  layer2.set_boundary( 0, 400 );
+  layer2.set_boundary( 0, 450 );
+
+  var layer3 = new PLayer
+  layer3.mode( RING );
+  layer3.set_boundary( 0,200);
+
+  var layer4 = new PLayer
+  layer4.mode( RING );
+  layer4.set_boundary( 0,700);
 }
 
 function faces(x, y, animation, pScope){

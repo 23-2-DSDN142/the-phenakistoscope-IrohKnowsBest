@@ -1,4 +1,4 @@
-const SLICE_COUNT = 10;
+const SLICE_COUNT = 12;
 
 function setup_pScope(pScope){
   pScope.output_mode(ANIMATED_DISK);
@@ -12,21 +12,50 @@ function setup_layers(pScope){
 
   new PLayer(null, 220);  //lets us draw the whole circle background, ignoring the boundaries
 
-  var layer1 = new PLayer(faces);
+  var layer1 = new PLayer(faces,);
   layer1.mode( SWIRL(5) );
-  layer1.set_boundary( 0, 1000 );
+  layer1.set_boundary(0,1000);
 
-  var layer2 = new PLayer(squares);
+  var layer2 = new PLayer();
   layer2.mode( RING );
-  layer2.set_boundary( 0, 450 );
+  layer2.set_boundary(0,700);
 
-  var layer3 = new PLayer
+  var layer3 = new PLayer();
   layer3.mode( RING );
-  layer3.set_boundary( 0,200);
+  layer3.set_boundary(0,450);
 
-  var layer4 = new PLayer
+  var layer4 = new PLayer(sun);
   layer4.mode( RING );
-  layer4.set_boundary( 0,700);
+  layer4.set_boundary(0,200);
+}
+
+function sun(x,y,animation,pScope){
+  rotate(animation.wave());
+  fill(244, 128, 55);
+  noStroke();
+  beginShape();
+  vertex(0,0);
+  vertex(-53,-195);
+  vertex(-35,-170);
+  vertex(-15,-180);
+  vertex(0,-190);
+  vertex(15,-180);
+  vertex(35,-170);
+  vertex(53,-195);
+  endShape();
+
+  fill(244,223,55);
+  noStroke();
+  beginShape();
+  vertex(0,0);
+  vertex(-50,-170);
+  vertex(-30,-160);
+  vertex(-10,-170);
+  vertex(0,-160);
+  vertex(10,-165);
+  vertex(30,-160);
+  vertex(50,-163);
+  endShape();
 }
 
 function faces(x, y, animation, pScope){

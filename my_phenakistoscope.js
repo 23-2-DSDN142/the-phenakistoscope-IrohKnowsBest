@@ -1,7 +1,7 @@
 const SLICE_COUNT = 12;
 
 function setup_pScope(pScope){
-  pScope.output_mode(OUTPUT_GIF(1000));
+  pScope.output_mode(ANIMATED_DISK);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.set_direction(CCW);
@@ -35,20 +35,20 @@ function sun(x,y,animation,pScope){
   let backgroundArcEnd = 270 + angleOffset;
 
   fill(70, 80, 108);
-  arc(x,y,400,400,backgroundArcStart,backgroundArcEnd);
+  arc(x,y,450,450,backgroundArcStart,backgroundArcEnd);
 
   rotate(animation.wave());
   fill(244, 128, 55);
   noStroke();
   beginShape();
   vertex(0,0);
-  vertex(-53,-195);
+  vertex(-55,-195);
   vertex(-35,-170);
   vertex(-15,-180);
   vertex(0,-190);
   vertex(15,-180);
-  vertex(35,-170);
-  vertex(53,-195);
+  vertex(35,-175);
+  vertex(52,-195);
   endShape();
 
   fill(244,223,55);
@@ -61,7 +61,7 @@ function sun(x,y,animation,pScope){
   vertex(0,-160);
   vertex(10,-165);
   vertex(30,-160);
-  vertex(50,-163);
+  vertex(47,-170);
   endShape();
 }
 

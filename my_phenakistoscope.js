@@ -1,7 +1,7 @@
 const SLICE_COUNT = 12;
 
 function setup_pScope(pScope){
-  pScope.output_mode(STATIC_DISK);
+  pScope.output_mode(ANIMATED_DISK);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.set_direction(CCW);
@@ -16,64 +16,100 @@ function setup_layers(pScope){
   layer1.mode( SWIRL(5) );
   layer1.set_boundary(0,1000);
 
-  var layer2 = new PLayer();
-  layer2.mode( RING );
-  layer2.set_boundary(0,700);
+  var fourthBackground = new PLayer(fourthBackgroundLayer);
+  fourthBackground.set_boundary();
 
-  var layer3 = new PLayer(outlayer1);
-  layer3.mode( RING );
-  layer3.set_boundary(0,450);
+  var thirdBackground = new PLayer(thirdBackgroundLayer);
+  thirdBackground.set_boundary();
 
-  var layer4 = new PLayer(sun);
-  layer4.mode( RING );
-  layer4.set_boundary(0,200);
+  var starBackground = new PLayer(secondBackgroundLayer);
+  starBackground.set_boundary();
+
+  var sunLayerB = new PLayer(sunBackground);
+  sunLayerB.mode( RING );
+  sunLayerB.set_boundary();
+
+  var sunLayerA = new PLayer(sun);
+  sunLayerA.set_boundary();
 }
 
+function sunBackground(x,y){
+  let angleOffset = (360 / SLICE_COUNT)
+  let backgroundArcStart = 284.5 - angleOffset;
+  let backgroundArcEnd = 255 + angleOffset;
+
+  fill(50, 57, 77);
+  arc(x,y,500,500,backgroundArcStart,backgroundArcEnd);
+}
 function sun(x,y,animation,pScope){
-  let angleOffset = (360 / SLICE_COUNT) / 1
-  let backgroundArcStart = 284 - angleOffset;
-  let backgroundArcEnd = 256 + angleOffset;
 
-  fill(70, 80, 108);
-  arc(x,y,450,450,backgroundArcStart,backgroundArcEnd);
-
+(360 / SLICE_COUNT) / 1
   rotate(animation.wave());
   fill(244, 128, 55);
   noStroke();
   beginShape();
   vertex(0,0);
-  vertex(-55,-195);
+  vertex(-56,-195);
   vertex(-35,-170);
   vertex(-15,-180);
   vertex(0,-190);
   vertex(15,-180);
   vertex(35,-175);
-  vertex(55,-195);
+  vertex(52,-195);
   endShape();
 
   fill(244,223,55);
   noStroke();
   beginShape();
-  vertex(0,0);
-  vertex(-55,-170);
+  vertex(-1,9);
+  vertex(-50,-170);
   vertex(-30,-160);
   vertex(-10,-170);
   vertex(0,-160);
   vertex(10,-165);
   vertex(30,-160);
-  vertex(55,-170);
+  vertex(46,-170);
   endShape();
+}
+rgb(30, 34, 46)
+rgb(50, 57, 77)
+rgb(90, 103, 139)
+rgb(116, 128, 165)
+
+function secondBackgroundLayer(x,y){
+  let angleOffset = (360 / SLICE_COUNT)
+  let backgroundArcStart = 284.5 - angleOffset;
+  let backgroundArcEnd = 255 + angleOffset;
 
   fill(70, 80, 108);
+  arc(x,y,900,900,backgroundArcStart,backgroundArcEnd);
 }
-function outlayer1(animation,x,y,pScope){
-  let angleOffset = (360 / SLICE_COUNT) / 1
-  let backgroundArcStart = 450 - angleOffset;
-  let backgroundArcEnd = 450 + angleOffset;
+
+function thirdBackgroundLayer(x,y){
+  let angleOffset = (360 / SLICE_COUNT)
+  let backgroundArcStart = 284.5 - angleOffset;
+  let backgroundArcEnd = 255 + angleOffset;
+
+  fill(90, 103, 139);
+  arc(x,y,1400,1400,backgroundArcStart,backgroundArcEnd);
+}
+
+function fourthBackgroundLayer(x,y){
+  let angleOffset = (360 / SLICE_COUNT)
+  let backgroundArcStart = 284.5 - angleOffset;
+  let backgroundArcEnd = 255 + angleOffset;
 
   fill(116, 128, 165);
-  arc(x,y,700,700,backgroundArcStart,backgroundArcEnd);
+  arc(x,y,2000,2000,backgroundArcStart,backgroundArcEnd);
 }
+
+
+
+
+
+
+
+
 
 function faces(x, y, animation, pScope){
   

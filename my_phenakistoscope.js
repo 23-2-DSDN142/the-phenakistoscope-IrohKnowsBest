@@ -25,6 +25,9 @@ function setup_layers(pScope){
   var secondBackground = new PLayer(secondBackgroundLayer);
   secondBackground.set_boundary();
 
+  // var starSecond = new Player(starSecondBackground);
+  // starSecond.set_boundary();
+
   // var mercuryPlanet = new Player(mercury);
   // mercuryPlanet.mode( RING );
   // mercuryPlanet.set_boundary();
@@ -76,10 +79,10 @@ function sun(x,y,animation,pScope){
   vertex(46,-170);
   endShape();
 }
-rgb(30, 34, 46)
-rgb(50, 57, 77)
-rgb(90, 103, 139)
-rgb(116, 128, 165)
+// rgb(30, 34, 46)
+// rgb(50, 57, 77)
+// rgb(90, 103, 139)
+// rgb(116, 128, 165)
 
 function secondBackgroundLayer(x,y){
   let angleOffset = (360 / SLICE_COUNT)
@@ -89,6 +92,19 @@ function secondBackgroundLayer(x,y){
   fill(70, 80, 108);
   noStroke();
   arc(x,y,900,900,backgroundArcStart,backgroundArcEnd);
+}
+
+function starSecondBackground(x,y,animation,pScope){
+
+// (360 / SLICE_COUNT) / 1
+//   rotate(animation.wave());
+  fill(50, 57, 77);
+  noStroke();
+  beginShape();
+  vertex(30,90);
+  vertex(70,120);
+  vertex(80,150);
+  endShape();
 }
 
 function mercury(x,y,animation,pScope){

@@ -1,7 +1,7 @@
 const SLICE_COUNT = 12;
 
 function setup_pScope(pScope){
-  pScope.output_mode(ANIMATED_DISK);
+  pScope.output_mode(STATIC_FRAME);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.set_direction(CCW);
@@ -22,8 +22,12 @@ function setup_layers(pScope){
   var thirdBackground = new PLayer(thirdBackgroundLayer);
   thirdBackground.set_boundary();
 
-  var starBackground = new PLayer(secondBackgroundLayer);
-  starBackground.set_boundary();
+  var secondBackground = new PLayer(secondBackgroundLayer);
+  secondBackground.set_boundary();
+
+  // var mercuryPlanet = new Player(mercury);
+  // mercuryPlanet.mode( RING );
+  // mercuryPlanet.set_boundary();
 
   var sunLayerB = new PLayer(sunBackground);
   sunLayerB.mode( RING );
@@ -39,6 +43,7 @@ function sunBackground(x,y){
   let backgroundArcEnd = 255 + angleOffset;
 
   fill(50, 57, 77);
+  noStroke();
   arc(x,y,500,500,backgroundArcStart,backgroundArcEnd);
 }
 function sun(x,y,animation,pScope){
@@ -82,8 +87,15 @@ function secondBackgroundLayer(x,y){
   let backgroundArcEnd = 255 + angleOffset;
 
   fill(70, 80, 108);
+  noStroke();
   arc(x,y,900,900,backgroundArcStart,backgroundArcEnd);
 }
+
+function mercury(x,y,animation,pScope){
+  fill(0,0,0);
+  ellipse(100,50,50,50);
+}
+
 
 function thirdBackgroundLayer(x,y){
   let angleOffset = (360 / SLICE_COUNT)
@@ -91,6 +103,7 @@ function thirdBackgroundLayer(x,y){
   let backgroundArcEnd = 255 + angleOffset;
 
   fill(90, 103, 139);
+  noStroke();
   arc(x,y,1400,1400,backgroundArcStart,backgroundArcEnd);
 }
 
@@ -100,8 +113,11 @@ function fourthBackgroundLayer(x,y){
   let backgroundArcEnd = 255 + angleOffset;
 
   fill(116, 128, 165);
+  noStroke();
   arc(x,y,2000,2000,backgroundArcStart,backgroundArcEnd);
 }
+
+
 
 
 

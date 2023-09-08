@@ -12,31 +12,31 @@ function setup_layers(pScope){
 
   new PLayer(null, 220);  //lets us draw the whole circle background, ignoring the boundaries
 
-  var layer1 = new PLayer();
+  let layer1 = new PLayer();
   layer1.mode( SWIRL(5) );
   layer1.set_boundary(0,1000);
 
-  var fourthBackground = new PLayer(fourthBackgroundLayer);
+  let fourthBackground = new PLayer(fourthBackgroundLayer);
   fourthBackground.set_boundary();
 
-  var thirdBackground = new PLayer(thirdBackgroundLayer);
+  let thirdBackground = new PLayer(thirdBackgroundLayer);
   thirdBackground.set_boundary();
 
-  var secondBackground = new PLayer(secondBackgroundLayer);
+  let secondBackground = new PLayer(secondBackgroundLayer);
   secondBackground.set_boundary();
 
-  // var starSecond = new Player(starSecondBackground);
+  // let starSecond = new Player(starSecondBackground);
   // starSecond.set_boundary();
 
   // var mercuryPlanet = new Player(mercury);
   // mercuryPlanet.mode( RING );
   // mercuryPlanet.set_boundary();
 
-  var sunLayerB = new PLayer(sunBackground);
+  let sunLayerB = new PLayer(sunBackground);
   sunLayerB.mode( RING );
   sunLayerB.set_boundary();
 
-  var sunLayerA = new PLayer(sun);
+  let sunLayerA = new PLayer(sun);
   sunLayerA.set_boundary();
 }
 
@@ -92,24 +92,39 @@ function secondBackgroundLayer(x,y){
   fill(70, 80, 108);
   noStroke();
   arc(x,y,900,900,backgroundArcStart,backgroundArcEnd);
-}
 
-function starSecondBackground(x,y,animation,pScope){
-
-// (360 / SLICE_COUNT) / 1
-//   rotate(animation.wave());
-  fill(50, 57, 77);
-  noStroke();
+fill(255,200,255);
+noStroke();
   beginShape();
-  vertex(30,90);
-  vertex(70,120);
-  vertex(80,150);
+  vertex(-20,-400);
+  vertex(-30,-425);
+  vertex(-40,-400);
+  vertex(-65,-390);
+  vertex(-40,-382);
+  vertex(-30,-365);
+  vertex(-20,-382);
+  vertex(5,-400);
   endShape();
 }
 
+// function starSecondBackground(x,y,animation,pScope){
+
+  // pScope.draw_image(draw_stars,x,y)
+// (360 / SLICE_COUNT) / 1
+//   rotate(animation.wave());
+// scale(animation.frame*2)
+//   fill(50, 57, 77);
+//   noStroke();
+//   beginShape();
+//   vertex(100,400);
+//   vertex(100,500);
+//   vertex(110,600);
+//   endShape();
+// }
+
 function mercury(x,y,animation,pScope){
   fill(0,0,0);
-  ellipse(100,50,50,50);
+  ellipse(x,y,1000,1000);
 }
 
 

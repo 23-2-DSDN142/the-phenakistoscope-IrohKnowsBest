@@ -1,7 +1,7 @@
 const SLICE_COUNT = 12;
 
 function setup_pScope(pScope){
-  pScope.output_mode(STATIC_FRAME);
+  pScope.output_mode(OUTPUT_GIF(500));
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.set_direction(CCW);
@@ -28,7 +28,7 @@ function setup_layers(pScope){
   // let starSecond = new Player(starSecondBackground);
   // starSecond.set_boundary();
 
-  // var mercuryPlanet = new Player(mercury);
+  // let mercuryPlanet = new Player(mercury);
   // mercuryPlanet.mode( RING );
   // mercuryPlanet.set_boundary();
 
@@ -78,7 +78,32 @@ function sun(x,y,animation,pScope){
   vertex(30,-160);
   vertex(46,-170);
   endShape();
+
+  fill(255,255,255);
+  noStroke();
+  translate(-170,-900);
+  ellipse(50,50,200);
+
+  fill(255,255,255);
+  noStroke();
+  translate(100,300);
+  ellipse(50,50,100);
 }
+
+// function mercury(x,y,animation,pScope){
+//   let angleOffset = (360 / SLICE_COUNT)
+//   let backgroundArcStart = 284.5 - angleOffset;
+//   let backgroundArcEnd = 255 + angleOffset;
+
+//   fill(70, 80, 108);
+//   noStroke();
+//   arc(x,y,900,900,backgroundArcStart,backgroundArcEnd);
+
+//   fill(255,255,255);
+//   noStroke();
+//   translate(0,-400);
+//   ellipse(50,80,100);
+// }
 // rgb(30, 34, 46)
 // rgb(50, 57, 77)
 // rgb(90, 103, 139)
@@ -93,17 +118,46 @@ function secondBackgroundLayer(x,y){
   noStroke();
   arc(x,y,900,900,backgroundArcStart,backgroundArcEnd);
 
-fill(255,200,255);
+fill(255,255,255); //Star
 noStroke();
+translate(-50,-400);
   beginShape();
-  vertex(-20,-400);
-  vertex(-30,-425);
-  vertex(-40,-400);
-  vertex(-65,-390);
-  vertex(-40,-382);
-  vertex(-30,-365);
-  vertex(-20,-382);
-  vertex(5,-400);
+  vertex(-5,5);
+  vertex(0,20);
+  vertex(5,5);
+  vertex(20,0);
+  vertex(5,-5);
+  vertex(0,-20);
+  vertex(-5,-5);
+  vertex(-20,0);
+  endShape();
+
+  fill(255,255,255); //Star
+noStroke();
+translate(100,-470);
+  beginShape();
+  vertex(-5,5);
+  vertex(0,20);
+  vertex(5,5);
+  vertex(20,0);
+  vertex(5,-5);
+  vertex(0,-20);
+  vertex(-5,-5);
+  vertex(-20,0);
+  endShape();
+
+  fill(255,255,255); //Star
+noStroke();
+translate(40,250);
+  beginShape();
+  vertex(-5,5);
+  vertex(0,20);
+  vertex(5,5);
+  vertex(20,0);
+  vertex(5,-5);
+  vertex(0,-20);
+  vertex(-5,-5);
+  vertex(-20,0);
   endShape();
 }
 
@@ -122,10 +176,6 @@ noStroke();
 //   endShape();
 // }
 
-function mercury(x,y,animation,pScope){
-  fill(0,0,0);
-  ellipse(x,y,1000,1000);
-}
 
 
 function thirdBackgroundLayer(x,y){

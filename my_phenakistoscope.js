@@ -1,7 +1,7 @@
 const SLICE_COUNT = 16;
 
 function setup_pScope(pScope) {
-  pScope.output_mode(OUTPUT_GIF(1000));
+  pScope.output_mode(ANIMATED_DISK);
   pScope.scale_for_screen(true);
   pScope.draw_layer_boundaries(false);
   pScope.set_direction(CCW);
@@ -761,7 +761,7 @@ function uranus(x, y, animation) {
 }
 
 function neptune(x, y, animation) {
-  if ((animation.frame * SLICE_COUNT) == 3) {
+  if ((animation.frame * SLICE_COUNT) == 4) {
     fill(27, 27, 69);
     noStroke();
     ellipse(500, -670, 240);

@@ -1,8 +1,8 @@
 const SLICE_COUNT = 16;
 
 function setup_pScope(pScope) {
-  pScope.output_mode(ANIMATED_DISK);
-  pScope.scale_for_screen(true);
+  pScope.output_mode(OUTPUT_PRINT(A3));
+  pScope.scale_for_screen(false);
   pScope.draw_layer_boundaries(false);
   pScope.set_direction(CCW);
   pScope.set_slice_count(SLICE_COUNT);
